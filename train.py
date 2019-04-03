@@ -12,6 +12,9 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 
+import sys
+
+
 opt = TrainOptions().parse()
 iter_path = os.path.join(opt.checkpoints_dir, opt.name, 'iter.txt')
 if opt.continue_train:
@@ -43,6 +46,7 @@ total_steps = (start_epoch-1) * dataset_size + epoch_iter
 display_delta = total_steps % opt.display_freq
 print_delta = total_steps % opt.print_freq
 save_delta = total_steps % opt.save_latest_freq
+
 
 for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
     epoch_start_time = time.time()
@@ -81,20 +85,20 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
 
         #call(["nvidia-smi", "--format=csv", "--query-gpu=memory.used,memory.free"]) 
 
-        ############## Display results and errors ##########
-        ### print out errors
-        if total_steps % opt.print_freq == print_delta:
-            errors = {k: v.data[0] if not isinstance(v, int) else v for k, v in loss_dict.items()}
-            t = (time.time() - iter_start_time) / opt.batchSize
-            visualizer.print_current_errors(epoch, epoch_iter, errors, t)
-            visualizer.plot_current_errors(errors, total_steps)
+        # ############## Display results and errors ##########
+        # ### print out errors
+        # if total_steps % opt.print_freq == print_delta:
+        #     errors = {k: v.data[0] if not isinstance(v, int) else v for k, v in loss_dict.items()}
+        #     t = (time.time() - iter_start_time) / opt.batchSize
+        #     visualizer.print_current_errors(epoch, epoch_iter, errors, t)
+        #     visualizer.plot_current_errors(errors, total_steps)
 
-        ### display output images
-        if save_fake:
-            visuals = OrderedDict([('input_label', util.tensor2label(data['label'][0], opt.label_nc)),
-                                   ('synthesized_image', util.tensor2im(generated.data[0])),
-                                   ('real_image', util.tensor2im(data['image'][0]))])
-            visualizer.display_current_results(visuals, epoch, total_steps)
+        # ### display output images
+        # if save_fake:
+        #     visuals = OrderedDict([('input_label', util.tensor2label(data['label'][0], opt.label_nc)),
+        #                            ('synthesized_image', util.tensor2im(generated.data[0])),
+        #                            ('real_image', util.tensor2im(data['image'][0]))])
+        #     visualizer.display_current_results(visuals, epoch, total_steps)
 
         ### save latest model
         if total_steps % opt.save_latest_freq == save_delta:
@@ -107,7 +111,7 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
        
     # end of epoch 
     iter_end_time = time.time()
-    print('End of epoch %d / %d \t Time Taken: %d sec' %
+    print('End of epoch %d / %d \t Time Taken: %f sec' %
           (epoch, opt.niter + opt.niter_decay, time.time() - epoch_start_time))
 
     ### save model for this epoch

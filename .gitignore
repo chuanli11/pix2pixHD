@@ -39,3 +39,5 @@ test/data/legacy_serialized.pt
 *.DS_Store
 *~
 venv-lambda/*
+
+datasets/*
