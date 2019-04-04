@@ -84,3 +84,14 @@ Resolution 2048 x 1024 (no cropping)
 | bs=2  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM | OOM  |   | 0.71  |
 | bs=4  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |   | OOM  |
 | bs=8  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |   | OOM  |
+
+
+**Time cost**
+
+CPU: Titan RTX
+Equation: (niter + niter_decay) * num_images / samples_per_sec
+Train 1024 x 512:
+(100 + 100) x 2975 / 2.10 = 78.7 hours
+
+Train 2048 x 1024:
+(50 + 50) x 2975 / 0.73 = 113.2 hours
