@@ -59,10 +59,10 @@ Resolution 1024 x 512
 
 |   | 2060  | 2070  | 2080  |  1080 Ti | 2080 Ti | TitanRTX | Quadro RTX 6000 | V100 | Quadro RTX 8000 |
 |---|---|---|---|---|---|---|---|---|---|
-| bs=1  | OOM  | OOM  | OOM  | 1.48  | 1.88  |  2.10 | 2.05  |   | 2.07  |
-| bs=2  | OOM  | OOM  | OOM | OOM  | OOM |  2.23 | 2.26  |   | 2.26  |
-| bs=4  | OOM  | OOM  | OOM  | OOM  | OOM  |  2.41 | 2.43  |   | 2.45  |
-| bs=8  | OOM  | OOM  | OOM  | OOM  | OOM  |  OOM |  OOM |   | 2.68  |
+| bs=1  | OOM  | OOM  | OOM  | 1.48  | 1.88  |  2.10 | 2.05  | 2.45  | 2.07  |
+| bs=2  | OOM  | OOM  | OOM | OOM  | OOM |  2.23 | 2.26  | 2.61 | 2.26  |
+| bs=4  | OOM  | OOM  | OOM  | OOM  | OOM  |  2.41 | 2.43  | 2.70 | 2.45  |
+| bs=8  | OOM  | OOM  | OOM  | OOM  | OOM  |  OOM |  OOM | OOM | 2.68  |
 
 
 Resolution 2048 x 1024 (no cropping)
@@ -80,10 +80,10 @@ Resolution 2048 x 1024 (no cropping)
 
 |   | 2060  | 2070  | 2080  |  1080 Ti | 2080 Ti | TitanRTX | Quadro RTX 6000 | V100 | Quadro RTX 8000 |
 |---|---|---|---|---|---|---|---|---|---|
-| bs=1  | OOM  | OOM  | OOM  | OOM  | OOM  | 0.73  | 0.71  |   | 0.71  |
-| bs=2  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM | OOM  |   | 0.71  |
-| bs=4  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |   | OOM  |
-| bs=8  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |   | OOM  |
+| bs=1  | OOM  | OOM  | OOM  | OOM  | OOM  | 0.73  | 0.71  | 0.75 | 0.71  |
+| bs=2  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM | OOM  | OOM  | 0.71  |
+| bs=4  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |
+| bs=8  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  | OOM  |
 
 
 **Time cost**

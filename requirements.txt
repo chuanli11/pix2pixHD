@@ -1,2 +1,4 @@
+torchvision
 dominate
 scipy
+Pillow
